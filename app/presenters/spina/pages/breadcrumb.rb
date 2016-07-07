@@ -32,6 +32,10 @@ module Spina
         build_breadcrumb(page) unless @homepage.id == @current_page.id
       end
 
+      def add_page(page)
+        @breadcrumb_items.insert(@breadcrumb_items.length, page)
+      end
+
       def to_html
         render_breadcrumb_wrapper(@breadcrumb_items)
       end
